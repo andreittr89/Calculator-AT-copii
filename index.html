@@ -189,7 +189,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <!-- EXPORT PDF -->
     <div class="card" id="export-card-copii">
       <div class="calc-btn" id="btn-export-copii" role="button" tabindex="0" style="background:#1a6b3a">📄 Salvează raport PDF →</div>
-      <p class="note" style="text-align:center">PDF-ul se generează și se salvează local. Zero date trimise online.</p>
+      <p class="note" style="text-align:center">Alege „Salvare ca PDF" din dialogul care apare. Date procesate local.</p>
     </div>
 
     <!-- MODUL SPORTIV (vizibil doar pentru sportivi) -->
@@ -511,11 +511,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Raport Nutritional Copil - '+numeCopil+'</title>';
     html += '<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}.page{max-width:700px;margin:0 auto;padding:20px 30px}table{width:100%;border-collapse:collapse;margin-bottom:8px}';
-    html += '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:10mm 12mm 15mm 12mm;size:A4}}</style></head><body>';
-
-    html += '<div class="no-print" style="text-align:center;padding:15px;background:#e8f4ed;border-bottom:1px solid #c8ddc3">';
-    html += '<button onclick="window.print()" style="padding:12px 24px;background:#2d6a3f;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer">Printeaza</button>';
-    html += '<p style="font-size:11px;color:#888;margin-top:6px">Fisierul a fost salvat automat. Poti si printa de aici.</p></div>';
+    html += '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:10mm 12mm 15mm 12mm;size:A4}}</style></head><body>';
 
     html += '<div class="page">';
 
@@ -584,16 +580,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     html += '</div></body></html>';
 
-    // Salvare directă
-    var blob = new Blob([html], {type: 'text/html;charset=utf-8'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'Raport_Nutritional_Copil_' + numeCopil.replace(/[^a-zA-Z0-9]/g, '_') + '_' + new Date().toISOString().slice(0,10) + '.html';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Deschide raportul și lansează Save as PDF
+    var printWin = window.open('', '_blank', 'width=800,height=900');
+    if(printWin) {
+      printWin.document.write(html);
+      printWin.document.close();
+      setTimeout(function(){ printWin.print(); }, 500);
+    } else {
+      alert('Permite pop-up-urile pentru acest site si incearca din nou.');
+    }
   });
 });
 </script>
