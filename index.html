@@ -14,586 +14,176 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f5ef;color:#1a1a1a;min-height:100vh;-webkit-text-size-adjust:100%}
 .app{max-width:640px;margin:0 auto;padding:1rem 0.75rem 3rem;display:none}
-.header{text-align:center;padding:1rem 0 0.75rem}
-.header-icon{font-size:32px;margin-bottom:4px}
-h1{font-size:19px;font-weight:600;color:#2d6a3f}
-.subtitle{font-size:12px;color:#888;margin-top:2px}
+.header{text-align:center;padding:1rem 0 0.75rem}.header-icon{font-size:32px;margin-bottom:4px}
+h1{font-size:19px;font-weight:600;color:#2d6a3f}.subtitle{font-size:12px;color:#888;margin-top:2px}
 .card{background:#fff;border:1px solid #d8e5d3;border-radius:14px;padding:1rem;margin-bottom:0.75rem}
 .card-title{font-size:14px;font-weight:600;color:#2d6a3f;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-label{font-size:13px;color:#555;display:block;margin-bottom:4px;margin-top:12px}
-label:first-child{margin-top:0}
+label{font-size:13px;color:#555;display:block;margin-bottom:4px;margin-top:12px}label:first-child{margin-top:0}
 input,select{width:100%;padding:12px;border:1px solid #d8e5d3;border-radius:10px;font-size:16px;background:#fff;color:#1a1a1a;outline:none;transition:border 0.15s;-webkit-appearance:none;appearance:none}
 input:focus,select:focus{border-color:#2d6a3f}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
 .row{display:flex;gap:10px}.row>div{flex:1}
 .calc-btn{width:100%;margin-top:1rem;padding:14px;background:#2d6a3f;border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:500;cursor:pointer;touch-action:manipulation;-webkit-appearance:none}
 .calc-btn:active{background:#245533;transform:scale(0.98)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-@media(max-width:380px){.grid3{grid-template-columns:1fr 1fr;gap:8px}.grid3>.metric:last-child{grid-column:span 2}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+@media(max-width:420px){.grid3{grid-template-columns:1fr 1fr}.grid3>.metric:last-child{grid-column:span 2}.grid4{grid-template-columns:1fr 1fr}}
 .metric{background:#f0f5ef;border-radius:10px;padding:0.75rem 0.5rem;text-align:center}
 .metric-label{font-size:10px;color:#888;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em}
-.metric-val{font-size:20px;font-weight:600;color:#2d6a3f}
-.metric-unit{font-size:10px;color:#888;margin-top:2px}
+.metric-val{font-size:20px;font-weight:600;color:#2d6a3f}.metric-unit{font-size:10px;color:#888;margin-top:2px}
 .result-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid #eef3ec;font-size:13px;gap:8px}
-.result-row:last-child{border-bottom:none}
-.result-label{color:#666;flex-shrink:0}
-.result-val{font-weight:500;color:#1a1a1a;text-align:right}
+.result-row:last-child{border-bottom:none}.result-label{color:#666;flex-shrink:0}.result-val{font-weight:500;color:#1a1a1a;text-align:right;word-break:break-word}
 .info-box{background:#e8f4ed;border-radius:10px;padding:10px 12px;font-size:12px;color:#2d6a3f;margin-top:10px;line-height:1.5}
 .warn-box{background:#fff3e0;border-radius:10px;padding:10px 12px;font-size:12px;color:#b45309;margin-top:10px;line-height:1.5}
 .danger-box{background:#fce4ec;border-radius:10px;padding:10px 12px;font-size:12px;color:#c62828;margin-top:10px;line-height:1.5}
 .note{font-size:11px;color:#999;margin-top:8px;line-height:1.5}
-.tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:6px;background:#e8f4ed;color:#2d6a3f;font-weight:500}
+.tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:6px;background:#e8f4ed;color:#2d6a3f;font-weight:500;margin-right:4px}
 .macro-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:10px 0}
-.macro-bar-prot{background:#4caf50}
-.macro-bar-lip{background:#ff9800}
-.macro-bar-gluc{background:#42a5f5}
+.macro-bar-prot{background:#4caf50}.macro-bar-lip{background:#ff9800}.macro-bar-gluc{background:#42a5f5}
 .macro-legend{display:flex;gap:12px;font-size:11px;color:#666;margin-bottom:8px;flex-wrap:wrap}
-.macro-legend span{display:flex;align-items:center;gap:4px}
-.macro-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.step-row{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #f0f5ef;font-size:12px;align-items:flex-start}
-.step-row:last-child{border-bottom:none}
-.step-num{width:20px;height:20px;border-radius:50%;background:#2d6a3f;color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.step-text{color:#1a1a1a;line-height:1.5}
-.step-text strong{color:#2d6a3f}
-.collapse-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:10px 0;user-select:none;-webkit-user-select:none;touch-action:manipulation}
-.collapse-header:active{opacity:0.7}
-.collapse-arrow{font-size:11px;color:#aaa;transition:transform 0.2s}
-.collapse-arrow.open{transform:rotate(90deg)}
-.collapse-body{display:none;padding-top:4px}
-.collapse-body.open{display:block}
-.login-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:#f0f5ef;z-index:9999;display:flex;align-items:center;justify-content:center}
-.login-overlay.hidden{display:none}
+.macro-legend span{display:flex;align-items:center;gap:4px}.macro-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.bf-bar{height:16px;border-radius:8px;background:linear-gradient(90deg,#e0e0e0 0%,#e0e0e0 5%,#4caf50 5%,#4caf50 50%,#8bc34a 50%,#8bc34a 65%,#ffeb3b 65%,#ffeb3b 80%,#ff9800 80%,#ff9800 90%,#f44336 90%);position:relative;margin:10px 0 6px}
+.bf-marker{position:absolute;top:-4px;width:4px;height:24px;background:#1a1a1a;border-radius:2px;transform:translateX(-50%)}
+.bf-labels{display:flex;justify-content:space-between;font-size:9px;color:#888}
+.collapse-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:10px 0;user-select:none;touch-action:manipulation}
+.collapse-header:active{opacity:0.7}.collapse-arrow{font-size:11px;color:#aaa;transition:transform 0.2s}.collapse-arrow.open{transform:rotate(90deg)}
+.collapse-body{display:none;padding-top:4px}.collapse-body.open{display:block}
+.login-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:#f0f5ef;z-index:9999;display:flex;align-items:center;justify-content:center}.login-overlay.hidden{display:none}
 .login-box{width:90%;max-width:340px;background:#fff;border:1px solid #d8e5d3;border-radius:16px;padding:2rem 1.5rem;text-align:center}
-.login-box h2{font-size:18px;font-weight:600;color:#2d6a3f;margin-bottom:4px}
-.login-box p{font-size:13px;color:#888;margin-bottom:1.5rem}
+.login-box h2{font-size:18px;font-weight:600;color:#2d6a3f;margin-bottom:4px}.login-box p{font-size:13px;color:#888;margin-bottom:1.5rem}
 .login-box input{width:100%;padding:14px;border:1px solid #d8e5d3;border-radius:10px;font-size:16px;text-align:center;margin-bottom:12px;outline:none;-webkit-appearance:none}
 .login-box input:focus{border-color:#2d6a3f}
 .login-box .login-btn{width:100%;padding:14px;background:#2d6a3f;border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:500;cursor:pointer;touch-action:manipulation;-webkit-appearance:none}
-.login-box .login-btn:active{background:#245533;transform:scale(0.98)}
-.login-error{color:#c62828;font-size:12px;margin-top:8px;display:none}
-.login-icon{font-size:36px;margin-bottom:12px}
+.login-box .login-btn:active{background:#245533;transform:scale(0.98)}.login-error{color:#c62828;font-size:12px;margin-top:8px;display:none}.login-icon{font-size:36px;margin-bottom:12px}
+.pillar-title{font-size:13px;font-weight:600;color:#2d6a3f;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #d8e5d3;text-transform:uppercase;letter-spacing:0.04em}
 </style>
 </head>
 <body>
-
-<!-- LOGIN -->
-<div class="login-overlay" id="login-overlay">
-  <div class="login-box">
-    <div class="login-icon">👶🔒</div>
-    <h2>Nutriție Copii</h2>
-    <p>Acces restricționat</p>
-    <input type="password" id="login-pass" placeholder="Parola" autocomplete="off">
-    <div class="login-btn" id="login-btn" role="button" tabindex="0">Intră →</div>
-    <div class="login-error" id="login-error">Parolă incorectă</div>
-  </div>
-</div>
-
-<!-- APP -->
+<div class="login-overlay" id="login-overlay"><div class="login-box"><div class="login-icon">👶🔒</div><h2>Nutriție Copii</h2><p>Acces restricționat</p><input type="password" id="login-pass" placeholder="Parola" autocomplete="off"><div class="login-btn" id="login-btn" role="button" tabindex="0">Intră →</div><div class="login-error" id="login-error">Parolă incorectă</div></div></div>
 <div class="app" id="main-app">
-  <div class="header">
-    <div class="header-icon">🧒</div>
-    <h1>Calculator Nutrițional — Copii</h1>
-    <p class="subtitle">Formula Vasile Bogdan · 1–18 ani · Macronutrienți · Modul Sportiv</p>
-  </div>
-
-  <div class="card">
-    <div class="card-title">📋 Date copil</div>
-    <label style="margin-top:0">Nume copil <span style="font-size:11px;color:#aaa;font-style:italic">(pentru raportul PDF)</span></label>
-    <input type="text" id="nume-copil" placeholder="ex: Popescu Maria" autocomplete="off">
-    <div class="row">
-      <div>
-        <label>Vârstă (ani)</label>
-        <input type="number" id="varsta" value="6" min="1" max="18">
-      </div>
-      <div>
-        <label>Sex</label>
-        <select id="sex">
-          <option value="m">Băiat</option>
-          <option value="f">Fată</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <label>Greutate (kg)</label>
-        <input type="number" id="greutate" value="22" step="0.1" min="5" max="120">
-      </div>
-      <div>
-        <label>Nivel activitate</label>
-        <select id="activitate">
-          <option value="sedentar">Sedentar / activitate ușoară</option>
-          <option value="activ" selected>Activ (sport recreativ)</option>
-          <option value="sportiv">Sportiv de performanță</option>
-        </select>
-      </div>
-    </div>
-    <div id="sport-type-wrap" style="display:none">
-      <label>Tip sport</label>
-      <select id="tip-sport">
-        <option value="rezistenta">Rezistență (înot, alergare, ciclism)</option>
-        <option value="forta">Forță (gimnastică, lupte, haltere)</option>
-        <option value="echipa" selected>Echipă (fotbal, baschet, handbal)</option>
-      </select>
-    </div>
-    <div class="calc-btn" id="btn-calc" role="button" tabindex="0">Calculează necesarul →</div>
-  </div>
-
-  <!-- REZULTATE -->
-  <div id="rezultate" style="display:none">
-
-    <div class="card">
-      <div class="card-title">📊 Necesar zilnic</div>
-      <div id="grupa-tag"></div>
-      <div class="grid3" style="margin-top:10px">
-        <div class="metric"><div class="metric-label">Calorii</div><div class="metric-val" id="r-kcal">—</div><div class="metric-unit">kcal/zi</div></div>
-        <div class="metric"><div class="metric-label">Proteine</div><div class="metric-val" id="r-prot">—</div><div class="metric-unit" id="r-prot-u">g/zi</div></div>
-        <div class="metric"><div class="metric-label">Lipide</div><div class="metric-val" id="r-lip">—</div><div class="metric-unit" id="r-lip-u">g/zi</div></div>
-      </div>
-      <div class="grid2" style="margin-top:10px">
-        <div class="metric"><div class="metric-label">Glucide</div><div class="metric-val" id="r-gluc">—</div><div class="metric-unit">g/zi</div></div>
-        <div class="metric"><div class="metric-label">Glucide</div><div class="metric-val" id="r-gluc-pct">—</div><div class="metric-unit">% din kcal</div></div>
-      </div>
-      <div class="macro-legend" style="margin-top:12px">
-        <span><span class="macro-dot" style="background:#4caf50"></span>Proteine</span>
-        <span><span class="macro-dot" style="background:#ff9800"></span>Lipide</span>
-        <span><span class="macro-dot" style="background:#42a5f5"></span>Glucide</span>
-      </div>
-      <div class="macro-bar">
-        <div class="macro-bar-prot" id="bar-prot"></div>
-        <div class="macro-bar-lip" id="bar-lip"></div>
-        <div class="macro-bar-gluc" id="bar-gluc"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">🔍 Detalii calcul</div>
-      <div class="result-row"><span class="result-label">Grupă de vârstă</span><span class="result-val" id="d-grupa">—</span></div>
-      <div class="result-row"><span class="result-label">Necesar caloric</span><span class="result-val" id="d-kcal">—</span></div>
-      <div class="result-row"><span class="result-label">Proteine (g/kg)</span><span class="result-val" id="d-prot-kg">—</span></div>
-      <div class="result-row"><span class="result-label">Lipide (g/kg)</span><span class="result-val" id="d-lip-kg">—</span></div>
-      <div class="result-row"><span class="result-label">Proteină complexă (min.)</span><span class="result-val" id="d-prot-complex">—</span></div>
-      <div class="result-row"><span class="result-label">Grăsimi saturate (max.)</span><span class="result-val" id="d-sat-max">—</span></div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">📝 Pași de calcul</div>
-      <div id="pasi-calcul"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">⚠️ Observații</div>
-      <div id="observatii"></div>
-    </div>
-
-    <!-- EXPORT PDF -->
-    <div class="card" id="export-card-copii">
-      <div class="calc-btn" id="btn-export-copii" role="button" tabindex="0" style="background:#1a6b3a">📄 Salvează raport PDF →</div>
-      <p class="note" style="text-align:center">Alege „Salvare ca PDF" din dialogul care apare. Date procesate local.</p>
-    </div>
-
-    <!-- MODUL SPORTIV (vizibil doar pentru sportivi) -->
-    <div id="sport-modul" style="display:none">
-
-      <div class="card">
-        <div class="card-title">🏅 Modul Sportiv — Nutriție adaptată</div>
-
-        <div class="collapse-header" id="toggle-sp-energie">
-          <span class="collapse-arrow" id="arr-sp-energie">▶</span>
-          <span style="font-size:14px;font-weight:500">Necesități energetice sportive</span>
-        </div>
-        <div class="collapse-body" id="body-sp-energie">
-          <div class="result-row"><span class="result-label">Copil 8–10 ani, sport moderat</span><span class="result-val">2.000–2.500 kcal/zi</span></div>
-          <div class="result-row"><span class="result-label">Adolescent 12–15 ani, rezistență</span><span class="result-val">3.000–3.500 kcal/zi</span></div>
-          <div class="result-row"><span class="result-label">Adolescent 16–18 ani, performanță</span><span class="result-val">3.500–4.500 kcal/zi</span></div>
-          <div class="result-row"><span class="result-label">Glucide sportive</span><span class="result-val">6–10 g/kg/zi (55–60% din kcal)</span></div>
-          <div class="result-row"><span class="result-label">Proteine sportive</span><span class="result-val">1.2–2.0 g/kg/zi (15–20%)</span></div>
-          <div class="result-row"><span class="result-label">Lipide sportive</span><span class="result-val">25–30% (&lt;10% saturate)</span></div>
-          <div class="info-box" id="sp-recomandare-energie"></div>
-        </div>
-
-        <div class="collapse-header" id="toggle-sp-timing">
-          <span class="collapse-arrow" id="arr-sp-timing">▶</span>
-          <span style="font-size:14px;font-weight:500">Timing-ul meselor</span>
-        </div>
-        <div class="collapse-body" id="body-sp-timing">
-          <div class="result-row"><span class="result-label">2–3h înainte</span><span class="result-val">Masă carbohidrați complecși + proteine ușoare</span></div>
-          <div class="result-row"><span class="result-label">30–60 min înainte</span><span class="result-val">Gustare ușoară: banană, iaurt, baton cereale</span></div>
-          <div class="result-row"><span class="result-label">Post-antrenament (30 min)</span><span class="result-val">Carbohidrați + proteine: smoothie lapte+fructe, sandwich brânză</span></div>
-          <div class="result-row"><span class="result-label">Structura zilnică</span><span class="result-val">3 mese principale + 2–3 gustări, sincronizate cu antrenamentele</span></div>
-        </div>
-
-        <div class="collapse-header" id="toggle-sp-hidro">
-          <span class="collapse-arrow" id="arr-sp-hidro">▶</span>
-          <span style="font-size:14px;font-weight:500">Hidratare sportivă</span>
-        </div>
-        <div class="collapse-body" id="body-sp-hidro">
-          <div class="result-row"><span class="result-label">Copii 7–12 ani</span><span class="result-val">1.5–2.0 L/zi</span></div>
-          <div class="result-row"><span class="result-label">Adolescenți sportivi</span><span class="result-val">2.5–3.5 L/zi</span></div>
-          <div class="result-row"><span class="result-label">Pre-efort (2h înainte)</span><span class="result-val" id="sp-hidro-pre">—</span></div>
-          <div class="result-row"><span class="result-label">În timpul efortului</span><span class="result-val">100–200 ml apă la fiecare 15–20 min</span></div>
-          <div class="result-row"><span class="result-label">Efort &gt;60 min</span><span class="result-val">Băuturi izotonice (6–8% carbohidrați + electroliți)</span></div>
-          <div class="result-row"><span class="result-label">Post-efort</span><span class="result-val">Rehidratare completă în 2h: apă + banane + lapte + supă</span></div>
-        </div>
-
-        <div class="collapse-header" id="toggle-sp-micro">
-          <span class="collapse-arrow" id="arr-sp-micro">▶</span>
-          <span style="font-size:14px;font-weight:500">Micronutrienți esențiali sportivi</span>
-        </div>
-        <div class="collapse-body" id="body-sp-micro">
-          <div class="result-row"><span class="result-label">Calciu</span><span class="result-val">1.300 mg/zi — masă osoasă (lapte, iaurt, broccoli, susan)</span></div>
-          <div class="result-row"><span class="result-label">Vitamina D</span><span class="result-val">Absorbție calciu + imunitate. Suplimentare iarna</span></div>
-          <div class="result-row"><span class="result-label">Fier</span><span class="result-val" id="sp-fier">—</span></div>
-          <div class="result-row"><span class="result-label">Magneziu + Potasiu</span><span class="result-val">Prevenire crampe musculare</span></div>
-          <div class="result-row"><span class="result-label">Zinc</span><span class="result-val">Imunitate și refacere tisulară</span></div>
-          <div class="result-row"><span class="result-label">Vitamina C + E</span><span class="result-val">Antioxidant — protecție stres oxidativ din efort</span></div>
-          <div class="result-row"><span class="result-label">Omega-3</span><span class="result-val">Antiinflamator, refacere musculară, concentrare</span></div>
-        </div>
-
-        <div class="collapse-header" id="toggle-sp-suplimente">
-          <span class="collapse-arrow" id="arr-sp-suplimente">▶</span>
-          <span style="font-size:14px;font-weight:500">Suplimentare la copii sportivi</span>
-        </div>
-        <div class="collapse-body" id="body-sp-suplimente">
-          <div class="danger-box">Nu se recomandă suplimente de performanță (creatină, proteine pudră, aminoacizi) la copii sub 16 ani decât sub supraveghere medicală strictă.</div>
-          <div class="result-row"><span class="result-label">Permise (dacă deficit confirmat)</span><span class="result-val">Vitamina D, Fier, Omega-3, Calciu</span></div>
-          <div class="result-row"><span class="result-label">Principiu</span><span class="result-val">Alimentele naturale sunt sursa de bază a nutrienților</span></div>
-        </div>
-
-        <div class="collapse-header" id="toggle-sp-riscuri">
-          <span class="collapse-arrow" id="arr-sp-riscuri">▶</span>
-          <span style="font-size:14px;font-weight:500">Riscuri nutriționale la sportivii tineri</span>
-        </div>
-        <div class="collapse-body" id="body-sp-riscuri">
-          <div class="result-row"><span class="result-label">RED-S</span><span class="result-val">Deficit energetic relativ — afectează creșterea, imunitatea, performanța</span></div>
-          <div class="result-row"><span class="result-label">Female Athlete Triad</span><span class="result-val">Amenoree + scădere masă osoasă + tulburări alimentare (fete)</span></div>
-          <div class="result-row"><span class="result-label">Dehidratare</span><span class="result-val">Scădere semnificativă performanță + risc accidentări</span></div>
-          <div class="result-row"><span class="result-label">Oboseală cronică</span><span class="result-val">Lipsă recuperare → risc burnout</span></div>
-          <div class="warn-box">Nutriția inadecvată la copilul sportiv duce la: întârziere de creștere și pubertate, oboseală cronică, fracturi de stres, imunitate scăzută. Colaborarea cu nutriționist sportiv și medic pediatru este esențială.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="header"><div class="header-icon">🧒</div><h1>Calculator Nutrițional — Copii</h1><p class="subtitle">Formula Vasile Bogdan · 1–18 ani · Evaluare ponderală OMS · Macronutrienți · Modul Sportiv</p></div>
+<div class="card">
+<div class="card-title">📋 Date copil</div>
+<label style="margin-top:0">Nume copil <span style="font-size:11px;color:#aaa;font-style:italic">(pentru raportul PDF)</span></label>
+<input type="text" id="nume-copil" placeholder="ex: Popescu Maria" autocomplete="off">
+<div class="row"><div><label>Vârstă (ani)</label><input type="number" id="varsta" value="8" min="1" max="18"></div><div><label>Sex</label><select id="sex"><option value="m">Băiat</option><option value="f">Fată</option></select></div></div>
+<div class="row"><div><label>Greutate (kg)</label><input type="number" id="greutate" value="28" step="0.1" min="5" max="150"></div><div><label>Înălțime (cm)</label><input type="number" id="inaltime" value="128" min="50" max="210"></div></div>
+<div class="row"><div><label>Nivel activitate</label><select id="activitate"><option value="sedentar">Sedentar / activitate ușoară</option><option value="activ" selected>Activ (sport recreativ)</option><option value="sportiv">Sportiv de performanță</option></select></div></div>
+<div id="sport-type-wrap" style="display:none"><label>Tip sport</label><select id="tip-sport"><option value="rezistenta">Rezistență (înot, alergare, ciclism)</option><option value="forta">Forță (gimnastică, lupte, haltere)</option><option value="echipa" selected>Echipă (fotbal, baschet, handbal)</option></select></div>
+<div class="calc-btn" id="btn-calc" role="button" tabindex="0">Calculează necesarul →</div>
+</div>
+<div id="rezultate" style="display:none">
+<div class="card"><div class="pillar-title">① Evaluare ponderală — Unde este copilul?</div>
+<div class="grid4" style="margin-bottom:10px"><div class="metric"><div class="metric-label">IMC</div><div class="metric-val" id="r-imc">—</div><div class="metric-unit" id="r-imc-cat">—</div></div><div class="metric"><div class="metric-label">Percentilă</div><div class="metric-val" id="r-percentila">—</div><div class="metric-unit" id="r-percentila-cat">—</div></div><div class="metric"><div class="metric-label">Body Fat %</div><div class="metric-val" id="r-bf">—</div><div class="metric-unit" id="r-bf-cat">—</div></div><div class="metric"><div class="metric-label">Gr. optimă</div><div class="metric-val" id="r-gr-opt">—</div><div class="metric-unit">kg</div></div></div>
+<div id="bf-viz" style="display:none"><p style="font-size:12px;color:#666;margin-bottom:2px">Grăsime corporală estimată</p><div class="bf-bar"><div class="bf-marker" id="bf-marker"></div></div><div class="bf-labels"><span>Slab</span><span>Normal</span><span>Ușor crescut</span><span>Crescut</span><span>Peste optim</span></div></div>
+<div style="margin-top:10px"><div class="result-row"><span class="result-label">Masa slabă estimată</span><span class="result-val" id="r-lbm">—</span></div><div class="result-row"><span class="result-label">Masa grasă estimată</span><span class="result-val" id="r-fat-kg">—</span></div><div class="result-row"><span class="result-label">Interval greutate optimă</span><span class="result-val" id="r-gr-interval">—</span></div><div class="result-row"><span class="result-label">Diferență față de optim</span><span class="result-val" id="r-diferenta">—</span></div></div>
+<div id="ponderal-alert" style="display:none"></div><div id="bf-note" class="note"></div></div>
+<div class="card"><div class="pillar-title">② Necesar nutrițional zilnic</div><div id="grupa-tag"></div>
+<div class="grid3" style="margin-top:10px"><div class="metric"><div class="metric-label">Calorii</div><div class="metric-val" id="r-kcal">—</div><div class="metric-unit">kcal/zi</div></div><div class="metric"><div class="metric-label">Proteine</div><div class="metric-val" id="r-prot">—</div><div class="metric-unit" id="r-prot-u">g/zi</div></div><div class="metric"><div class="metric-label">Lipide</div><div class="metric-val" id="r-lip">—</div><div class="metric-unit" id="r-lip-u">g/zi</div></div></div>
+<div class="grid2" style="margin-top:10px"><div class="metric"><div class="metric-label">Glucide</div><div class="metric-val" id="r-gluc">—</div><div class="metric-unit">g/zi</div></div><div class="metric"><div class="metric-label">Glucide</div><div class="metric-val" id="r-gluc-pct">—</div><div class="metric-unit">% din kcal</div></div></div>
+<div class="macro-legend" style="margin-top:12px"><span><span class="macro-dot" style="background:#4caf50"></span>Proteine</span><span><span class="macro-dot" style="background:#ff9800"></span>Lipide</span><span><span class="macro-dot" style="background:#42a5f5"></span>Glucide</span></div>
+<div class="macro-bar"><div class="macro-bar-prot" id="bar-prot"></div><div class="macro-bar-lip" id="bar-lip"></div><div class="macro-bar-gluc" id="bar-gluc"></div></div>
+<div id="macro-obs" class="info-box" style="display:none"></div></div>
+<div class="card"><div class="card-title">⚠️ Observații și recomandări</div><div id="observatii"></div></div>
+<div class="card" id="export-card-copii"><div class="calc-btn" id="btn-export-copii" role="button" tabindex="0" style="background:#1a6b3a">📄 Salvează raport PDF →</div><p class="note" style="text-align:center">PDF generat local. Zero date online.</p></div>
+<div id="sport-modul" style="display:none"><div class="card"><div class="card-title">🏅 Modul Sportiv</div>
+<div class="collapse-header" id="toggle-sp-energie"><span class="collapse-arrow" id="arr-sp-energie">▶</span><span style="font-size:14px;font-weight:500">Necesități energetice sportive</span></div><div class="collapse-body" id="body-sp-energie"><div class="result-row"><span class="result-label">Copil 8–10 ani</span><span class="result-val">2.000–2.500 kcal/zi</span></div><div class="result-row"><span class="result-label">Adolescent 12–15 ani</span><span class="result-val">3.000–3.500 kcal/zi</span></div><div class="result-row"><span class="result-label">Adolescent 16–18 ani</span><span class="result-val">3.500–4.500 kcal/zi</span></div><div class="info-box" id="sp-recomandare-energie"></div></div>
+<div class="collapse-header" id="toggle-sp-timing"><span class="collapse-arrow" id="arr-sp-timing">▶</span><span style="font-size:14px;font-weight:500">Timing mese</span></div><div class="collapse-body" id="body-sp-timing"><div class="result-row"><span class="result-label">2–3h înainte</span><span class="result-val">Carb complecși + proteine ușoare</span></div><div class="result-row"><span class="result-label">30–60 min înainte</span><span class="result-val">Banană, iaurt, baton cereale</span></div><div class="result-row"><span class="result-label">Post-antrenament 30 min</span><span class="result-val">Carb + proteine: smoothie lapte+fructe</span></div></div>
+<div class="collapse-header" id="toggle-sp-hidro"><span class="collapse-arrow" id="arr-sp-hidro">▶</span><span style="font-size:14px;font-weight:500">Hidratare sportivă</span></div><div class="collapse-body" id="body-sp-hidro"><div class="result-row"><span class="result-label">Pre-efort</span><span class="result-val" id="sp-hidro-pre">—</span></div><div class="result-row"><span class="result-label">În efort</span><span class="result-val">100–200 ml la 15–20 min</span></div><div class="result-row"><span class="result-label">Efort >60 min</span><span class="result-val">Băuturi izotonice 6–8% carb</span></div></div>
+<div class="collapse-header" id="toggle-sp-micro"><span class="collapse-arrow" id="arr-sp-micro">▶</span><span style="font-size:14px;font-weight:500">Micronutrienți</span></div><div class="collapse-body" id="body-sp-micro"><div class="result-row"><span class="result-label">Calciu</span><span class="result-val">1.300 mg/zi</span></div><div class="result-row"><span class="result-label">Fier</span><span class="result-val" id="sp-fier">—</span></div><div class="result-row"><span class="result-label">Omega-3</span><span class="result-val">Antiinflamator, refacere, concentrare</span></div></div>
+<div class="collapse-header" id="toggle-sp-suplimente"><span class="collapse-arrow" id="arr-sp-suplimente">▶</span><span style="font-size:14px;font-weight:500">Suplimentare</span></div><div class="collapse-body" id="body-sp-suplimente"><div class="danger-box">Nu se recomandă creatină/proteine pudră/aminoacizi sub 16 ani fără supraveghere medicală.</div></div>
+<div class="collapse-header" id="toggle-sp-riscuri"><span class="collapse-arrow" id="arr-sp-riscuri">▶</span><span style="font-size:14px;font-weight:500">Riscuri nutriționale</span></div><div class="collapse-body" id="body-sp-riscuri"><div class="result-row"><span class="result-label">RED-S</span><span class="result-val">Deficit energetic relativ</span></div><div class="result-row"><span class="result-label">Female Athlete Triad</span><span class="result-val">Amenoree + masă osoasă ↓</span></div><div class="warn-box">Colaborare cu nutriționist sportiv și medic pediatru esențială.</div></div>
+</div></div>
+</div>
 </div>
 
 <script>
-// ======= AUTH =======
-var HASH = 'b368fd0778ef416061c258b8312a7513753da4da41a8c4587974a049e50966d1';
+var HASH='b368fd0778ef416061c258b8312a7513753da4da41a8c4587974a049e50966d1';
 async function sha256(t){var d=new TextEncoder().encode(t);var h=await crypto.subtle.digest('SHA-256',d);return Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,'0')}).join('')}
 async function tryLogin(){var p=document.getElementById('login-pass').value;if(!p)return;var h=await sha256(p);if(h===HASH){document.getElementById('login-overlay').classList.add('hidden');document.getElementById('main-app').style.display='block';sessionStorage.setItem('nutri-kids-auth','1')}else{document.getElementById('login-error').style.display='block';document.getElementById('login-pass').value='';document.getElementById('login-pass').style.borderColor='#c62828';setTimeout(function(){document.getElementById('login-pass').style.borderColor='#d8e5d3'},1500)}}
-
 document.addEventListener('DOMContentLoaded', function() {
   if(sessionStorage.getItem('nutri-kids-auth')==='1'){document.getElementById('login-overlay').classList.add('hidden');document.getElementById('main-app').style.display='block'}
   document.getElementById('login-btn').addEventListener('click', tryLogin);
   document.getElementById('login-pass').addEventListener('keydown', function(e){if(e.key==='Enter')tryLogin();document.getElementById('login-error').style.display='none'});
+  document.getElementById('activitate').addEventListener('change', function(){document.getElementById('sport-type-wrap').style.display=this.value==='sportiv'?'block':'none'});
+  var whoIMC={m:{2:{p5:14.7,p50:16.4,p85:18.1,p95:19.1},3:{p5:14.3,p50:15.9,p85:17.4,p95:18.3},4:{p5:13.9,p50:15.5,p85:17.0,p95:17.8},5:{p5:13.7,p50:15.3,p85:16.9,p95:17.9},6:{p5:13.5,p50:15.3,p85:17.1,p95:18.3},7:{p5:13.5,p50:15.5,p85:17.5,p95:18.9},8:{p5:13.6,p50:15.7,p85:18.0,p95:19.7},9:{p5:13.7,p50:16.0,p85:18.6,p95:20.5},10:{p5:13.9,p50:16.4,p85:19.4,p95:21.4},11:{p5:14.1,p50:16.9,p85:20.2,p95:22.5},12:{p5:14.5,p50:17.5,p85:21.0,p95:23.6},13:{p5:15.0,p50:18.2,p85:21.8,p95:24.5},14:{p5:15.5,p50:18.9,p85:22.6,p95:25.3},15:{p5:16.0,p50:19.5,p85:23.3,p95:25.9},16:{p5:16.5,p50:20.1,p85:23.8,p95:26.4},17:{p5:17.0,p50:20.6,p85:24.3,p95:26.8},18:{p5:17.4,p50:21.0,p85:24.7,p95:27.2}},f:{2:{p5:14.4,p50:16.0,p85:17.8,p95:18.7},3:{p5:13.9,p50:15.6,p85:17.4,p95:18.4},4:{p5:13.6,p50:15.3,p85:17.2,p95:18.3},5:{p5:13.4,p50:15.2,p85:17.2,p95:18.4},6:{p5:13.3,p50:15.3,p85:17.5,p95:18.9},7:{p5:13.4,p50:15.5,p85:17.9,p95:19.6},8:{p5:13.5,p50:15.8,p85:18.6,p95:20.6},9:{p5:13.7,p50:16.3,p85:19.3,p95:21.5},10:{p5:14.0,p50:16.8,p85:20.1,p95:22.6},11:{p5:14.4,p50:17.3,p85:20.8,p95:23.5},12:{p5:14.8,p50:17.9,p85:21.7,p95:24.4},13:{p5:15.3,p50:18.6,p85:22.5,p95:25.2},14:{p5:15.8,p50:19.2,p85:23.1,p95:25.9},15:{p5:16.2,p50:19.7,p85:23.5,p95:26.3},16:{p5:16.5,p50:20.1,p85:23.8,p95:26.6},17:{p5:16.8,p50:20.4,p85:24.1,p95:26.8},18:{p5:17.0,p50:20.6,p85:24.3,p95:27.0}}};
+  function getGrupa(v){if(v>=1&&v<3)return'1-3';if(v>=3&&v<7)return'3-7';if(v>=7&&v<10)return'7-10';if(v>=10&&v<14)return'10-14';if(v>=14&&v<=18)return'14-18';return null}
+  function getKcal(gr,sx,ac){var t={'1-3':{m:1200,f:1150},'3-7':{m:1400,f:1400},'7-10':{m:1800,f:1800},'10-14':{m:2500,f:2250},'14-18':{m:3000,f:2400}};var k=t[gr][sx];if(gr==='14-18'&&sx==='m'){if(ac==='sedentar')k=3000;else if(ac==='activ')k=3250;else k=3500}if(ac==='sportiv'){if(gr==='7-10')k=sx==='m'?2250:2100;if(gr==='10-14')k=sx==='m'?3000:2750;if(gr==='14-18'&&sx==='f')k=2800}return k}
+  function getProtKg(g){return{'1-3':4,'3-7':3.5,'7-10':3,'10-14':2.7,'14-18':2.5}[g]}
+  function getLipKg(g){return{'1-3':2.5,'3-7':2,'7-10':1.5,'10-14':1.5,'14-18':1.2}[g]}
+  function getProtComplex(g){return g==='1-3'?75:50}
+  function getSatMax(g){return{'1-3':40,'3-7':30,'7-10':20,'10-14':20,'14-18':20}[g]}
+  function getGL(g){return{'1-3':'1\u20133 ani','3-7':'3\u20137 ani','7-10':'7\u201310 ani','10-14':'10\u201314 ani','14-18':'14\u201318 ani'}[g]}
+  [['toggle-sp-energie','body-sp-energie','arr-sp-energie'],['toggle-sp-timing','body-sp-timing','arr-sp-timing'],['toggle-sp-hidro','body-sp-hidro','arr-sp-hidro'],['toggle-sp-micro','body-sp-micro','arr-sp-micro'],['toggle-sp-suplimente','body-sp-suplimente','arr-sp-suplimente'],['toggle-sp-riscuri','body-sp-riscuri','arr-sp-riscuri']].forEach(function(ids){var el=document.getElementById(ids[0]);if(el)el.addEventListener('click',function(){document.getElementById(ids[1]).classList.toggle('open');document.getElementById(ids[2]).classList.toggle('open')})});
 
-  // Show sport type when sportiv selected
-  function checkSportType(){
-    var act = document.getElementById('activitate').value;
-    document.getElementById('sport-type-wrap').style.display = (act === 'sportiv') ? 'block' : 'none';
-  }
-  document.getElementById('activitate').addEventListener('change', checkSportType);
-  checkSportType();
-
-  // ======= TABELE DIN DOCUMENT =======
-  function getGrupa(v) {
-    if(v >= 1 && v < 3) return '1-3';
-    if(v >= 3 && v < 7) return '3-7';
-    if(v >= 7 && v < 10) return '7-10';
-    if(v >= 10 && v < 14) return '10-14';
-    if(v >= 14 && v <= 18) return '14-18';
-    return null;
-  }
-
-  function getKcal(grupa, sex, activitate) {
-    var t = {
-      '1-3':  { m: 1200, f: 1150 },
-      '3-7':  { m: 1400, f: 1400 },
-      '7-10': { m: 1800, f: 1800 },
-      '10-14':{ m: 2500, f: 2250 },
-      '14-18':{ m: 3000, f: 2400 }
-    };
-    var kcal = t[grupa][sex];
-    if(grupa === '14-18' && sex === 'm') {
-      if(activitate === 'sedentar') kcal = 3000;
-      else if(activitate === 'activ') kcal = 3250;
-      else kcal = 3500;
-    }
-    // Sportiv overrides for younger groups
-    if(activitate === 'sportiv') {
-      if(grupa === '7-10') kcal = sex === 'm' ? 2250 : 2100;
-      if(grupa === '10-14') kcal = sex === 'm' ? 3000 : 2750;
-      if(grupa === '14-18' && sex === 'f') kcal = 2800;
-    }
-    return kcal;
-  }
-
-  function getProtKg(grupa, activitate) {
-    var t = {'1-3':4, '3-7':3.5, '7-10':3, '10-14':2.7, '14-18':2.5};
-    return t[grupa];
-  }
-  function getLipKg(grupa) {
-    var t = {'1-3':2.5, '3-7':2, '7-10':1.5, '10-14':1.5, '14-18':1.2};
-    return t[grupa];
-  }
-  function getProtComplex(grupa) { return grupa === '1-3' ? 75 : 50; }
-  function getSatMax(grupa) {
-    var t = {'1-3':40, '3-7':30, '7-10':20, '10-14':20, '14-18':20};
-    return t[grupa];
-  }
-  function getGrupaLabel(grupa) {
-    var t = {'1-3':'1–3 ani', '3-7':'3–7 ani', '7-10':'7–10 ani', '10-14':'10–14 ani', '14-18':'14–18 ani'};
-    return t[grupa];
-  }
-
-  // ======= COLLAPSE TOGGLES =======
-  var collapseToggles = [
-    ['toggle-sp-energie','body-sp-energie','arr-sp-energie'],
-    ['toggle-sp-timing','body-sp-timing','arr-sp-timing'],
-    ['toggle-sp-hidro','body-sp-hidro','arr-sp-hidro'],
-    ['toggle-sp-micro','body-sp-micro','arr-sp-micro'],
-    ['toggle-sp-suplimente','body-sp-suplimente','arr-sp-suplimente'],
-    ['toggle-sp-riscuri','body-sp-riscuri','arr-sp-riscuri']
-  ];
-  collapseToggles.forEach(function(ids) {
-    var toggle = document.getElementById(ids[0]);
-    if(toggle) {
-      toggle.addEventListener('click', function(){
-        document.getElementById(ids[1]).classList.toggle('open');
-        document.getElementById(ids[2]).classList.toggle('open');
-      });
-    }
-  });
-
-  // ======= CALCUL =======
   document.getElementById('btn-calc').addEventListener('click', function() {
-    var v = parseInt(document.getElementById('varsta').value) || 0;
-    var sex = document.getElementById('sex').value;
-    var g = parseFloat(document.getElementById('greutate').value) || 0;
-    var act = document.getElementById('activitate').value;
-    var tipSport = document.getElementById('tip-sport').value;
-
-    if(v < 1 || v > 18 || g < 3) return;
-
-    var grupa = getGrupa(v);
-    if(!grupa) return;
-
-    var kcal = getKcal(grupa, sex, act);
-    var protKg = getProtKg(grupa, act);
-    var lipKg = getLipKg(grupa);
-    var protComplex = getProtComplex(grupa);
-    var satMax = getSatMax(grupa);
-
-    var protG = Math.round(protKg * g * 10) / 10;
-    var protKcal = Math.round(protG * 4);
-    var lipG = Math.round(lipKg * g * 10) / 10;
-    var lipKcal = Math.round(lipG * 9);
-    var glucKcal = kcal - protKcal - lipKcal;
-    var glucG = Math.round(glucKcal / 4);
-    if(glucKcal < 0) { glucKcal = 0; glucG = 0; }
-
-    var protPct = Math.round(protKcal / kcal * 100);
-    var lipPct = Math.round(lipKcal / kcal * 100);
-    var glucPct = 100 - protPct - lipPct;
-
-    // Display
-    document.getElementById('r-kcal').textContent = kcal;
-    document.getElementById('r-prot').textContent = protG;
-    document.getElementById('r-prot-u').textContent = protG + 'g / ' + protKg + ' g/kg';
-    document.getElementById('r-lip').textContent = lipG;
-    document.getElementById('r-lip-u').textContent = lipG + 'g / ' + lipKg + ' g/kg';
-    document.getElementById('r-gluc').textContent = glucG;
-    document.getElementById('r-gluc-pct').textContent = glucPct + '%';
-
-    document.getElementById('bar-prot').style.width = protPct + '%';
-    document.getElementById('bar-lip').style.width = lipPct + '%';
-    document.getElementById('bar-gluc').style.width = glucPct + '%';
-
-    var actLabel = act === 'sedentar' ? 'Sedentar' : act === 'activ' ? 'Activ' : 'Sportiv';
-    document.getElementById('grupa-tag').innerHTML = '<span class="tag">' + getGrupaLabel(grupa) + ' · ' + (sex==='m'?'Băiat':'Fată') + ' · ' + g + ' kg · ' + actLabel + '</span>';
-
-    document.getElementById('d-grupa').textContent = getGrupaLabel(grupa);
-    document.getElementById('d-kcal').textContent = kcal + ' kcal/zi' + (act==='sportiv' ? ' (ajustat sportiv)' : '');
-    document.getElementById('d-prot-kg').textContent = protKg + ' g/kg/zi';
-    document.getElementById('d-lip-kg').textContent = lipKg + ' g/kg/zi';
-    document.getElementById('d-prot-complex').textContent = protComplex + '% din proteine';
-    document.getElementById('d-sat-max').textContent = satMax + '% din lipide';
-
-    // Pași calcul
-    var pasi = '';
-    pasi += '<div class="step-row"><div class="step-num">1</div><div class="step-text"><strong>Necesar caloric:</strong> ' + kcal + ' kcal/zi (' + getGrupaLabel(grupa) + ', ' + (sex==='m'?'băieți':'fete') + (act==='sportiv'?', sportiv de performanță':'') + ')</div></div>';
-    pasi += '<div class="step-row"><div class="step-num">2</div><div class="step-text"><strong>Proteine:</strong> ' + protKg + ' g/kg × ' + g + ' kg = <strong>' + protG + ' g</strong> → ' + protKcal + ' kcal</div></div>';
-    pasi += '<div class="step-row"><div class="step-num">3</div><div class="step-text"><strong>Lipide:</strong> ' + lipKg + ' g/kg × ' + g + ' kg = <strong>' + lipG + ' g</strong> → ' + lipKcal + ' kcal</div></div>';
-    pasi += '<div class="step-row"><div class="step-num">4</div><div class="step-text"><strong>Glucide (diferență):</strong> ' + kcal + ' − ' + protKcal + ' − ' + lipKcal + ' = ' + glucKcal + ' kcal → <strong>' + glucG + ' g</strong></div></div>';
-    document.getElementById('pasi-calcul').innerHTML = pasi;
-
-    // Observații
-    var obs = '';
-    if(grupa === '1-3') {
-      obs += '<div class="info-box">🧒 La 1–3 ani, grăsimile sunt esențiale pentru dezvoltarea creierului. Min. 75% din proteine trebuie să fie de calitate înaltă (ouă, carne, lactate).</div>';
-    }
-    if(grupa === '3-7' || grupa === '7-10') {
-      obs += '<div class="info-box">🐟 Grăsimile nesaturate (omega-3 din pește, nuci, semințe) sunt esențiale pentru dezvoltarea cognitivă sub 7–10 ani.</div>';
-    }
-    if(grupa === '14-18' && sex === 'm' && act === 'sportiv') {
-      obs += '<div class="info-box">⚡ La adolescenții sportivi de performanță (14–18 ani), necesarul caloric poate depăși 4.500 kcal/zi în perioade de antrenament intens.</div>';
-    }
-    if(protKcal + lipKcal > kcal) {
-      obs += '<div class="warn-box">⚠️ Atenție: proteinele + lipidele calculate depășesc necesarul caloric total. Verificați greutatea introdusă — poate fi prea mare pentru grupa de vârstă.</div>';
-    }
-
-    var protComplexG = Math.round(protG * protComplex / 100);
-    obs += '<div class="info-box">🥚 <strong>Proteină complexă minimă:</strong> ' + protComplexG + ' g/zi (' + protComplex + '% din ' + protG + ' g) — surse: ouă, carne, pește, lactate.</div>';
-
-    var satMaxG = Math.round(lipG * satMax / 100);
-    obs += '<div class="info-box">🧈 <strong>Grăsimi saturate maxim:</strong> ' + satMaxG + ' g/zi (' + satMax + '% din ' + lipG + ' g lipide). Restul: ulei de măsline, avocado, nuci, pește gras.</div>';
-
-    obs += '<p class="note">Valorile sunt orientative. Consultați un medic pediatru sau nutriționist înainte de a modifica semnificativ dieta unui copil.</p>';
-    document.getElementById('observatii').innerHTML = obs;
-
-    // ======= MODUL SPORTIV =======
-    if(act === 'sportiv') {
-      document.getElementById('sport-modul').style.display = 'block';
-
-      // Hidratare pre-efort
-      var hidroPre = Math.round(g * 6) + '–' + Math.round(g * 7) + ' ml (5–7 ml/kg)';
-      document.getElementById('sp-hidro-pre').textContent = hidroPre;
-
-      // Fier pe sex
-      document.getElementById('sp-fier').textContent = sex === 'f' ? '15 mg/zi (fete — menstruație). Surse: carne roșie, leguminoase, verdețuri' : '11 mg/zi (băieți). Surse: carne roșie slabă, pește, leguminoase';
-
-      // Recomandare energie pe tip sport
-      var recEnergie = '';
-      if(tipSport === 'rezistenta') {
-        recEnergie = 'Sporturile de rezistență (înot, alergare, ciclism) au cerințe energetice mari. Accent pe carbohidrați complecși (6–10 g/kg/zi) pentru refacerea glicogenului. Glucidele = 55–60% din aportul caloric.';
-      } else if(tipSport === 'forta') {
-        recEnergie = 'Sporturile de forță (gimnastică, lupte, haltere) necesită accent pe proteine pentru adaptare musculară (1.5–2.0 g/kg/zi). Carbohidrații rămân importanți pentru energie: 50–55%.';
-      } else {
-        recEnergie = 'Sporturile de echipă (fotbal, baschet, handbal) combină rezistența cu forța. Carbohidrați: 55–60% din kcal (6–8 g/kg/zi). Proteine: 1.2–1.8 g/kg/zi. Hidratare continuă în antrenament și meci.';
-      }
-      document.getElementById('sp-recomandare-energie').textContent = recEnergie;
-    } else {
-      document.getElementById('sport-modul').style.display = 'none';
-    }
-
-    document.getElementById('rezultate').style.display = 'block';
-    setTimeout(function(){ document.getElementById('rezultate').scrollIntoView({behavior:'smooth'}); }, 100);
+    var v=parseInt(document.getElementById('varsta').value)||0,sex=document.getElementById('sex').value,g=parseFloat(document.getElementById('greutate').value)||0,h=parseFloat(document.getElementById('inaltime').value)||0,act=document.getElementById('activitate').value,tipSport=document.getElementById('tip-sport').value;
+    if(v<1||v>18||g<3||h<50)return;var grupa=getGrupa(v);if(!grupa)return;
+    var imc=g/((h/100)*(h/100));var vRef=Math.max(2,Math.min(18,v));var ref=whoIMC[sex][vRef]||whoIMC[sex][18];
+    var percentila='',percentilaCat='';
+    if(imc<ref.p5){percentila='<P5';percentilaCat='Subponderal'}
+    else if(imc<ref.p50){percentila='~P'+Math.round(5+(imc-ref.p5)/(ref.p50-ref.p5)*45);percentilaCat='Normal'}
+    else if(imc<ref.p85){percentila='~P'+Math.round(50+(imc-ref.p50)/(ref.p85-ref.p50)*35);percentilaCat='Normal'}
+    else if(imc<ref.p95){percentila='~P'+Math.round(85+(imc-ref.p85)/(ref.p95-ref.p85)*10);percentilaCat='Supraponderal'}
+    else{percentila='>P95';percentilaCat='Nivel crescut'}
+    var bf=0,bfCat='',bfValid=v>=7;
+    if(bfValid){var sexD=sex==='m'?1:0;bf=1.51*imc-0.70*v-3.6*sexD+1.4;bf=Math.max(bf,3);bf=Math.min(bf,50);if(sex==='m'){bfCat=bf<10?'Slab':bf<20?'Normal':bf<25?'U\u0219or crescut':bf<30?'Crescut':'Peste optim'}else{bfCat=bf<15?'Slab':bf<25?'Normal':bf<30?'U\u0219or crescut':bf<35?'Crescut':'Peste optim'}}
+    var grOpt=Math.round(ref.p50*(h/100)*(h/100)*10)/10,grLow=Math.round(ref.p5*(h/100)*(h/100)*10)/10,grHigh=Math.round(ref.p85*(h/100)*(h/100)*10)/10,diferenta=g-grOpt;
+    var fatKg=bfValid?g*bf/100:0,lbm=bfValid?g-fatKg:0;
+    document.getElementById('r-imc').textContent=imc.toFixed(1);document.getElementById('r-imc-cat').textContent=imc<ref.p5?'Sub optim':imc<ref.p85?'Normal':imc<ref.p95?'U\u0219or peste':'Peste optim';
+    document.getElementById('r-percentila').textContent=percentila;document.getElementById('r-percentila-cat').textContent=percentilaCat;
+    document.getElementById('r-gr-opt').textContent=grOpt.toFixed(0);document.getElementById('r-gr-interval').textContent=grLow.toFixed(0)+'\u2013'+grHigh.toFixed(0)+' kg (P5\u2013P85 OMS)';
+    if(bfValid){document.getElementById('r-bf').textContent=bf.toFixed(1)+'%';document.getElementById('r-bf-cat').textContent=bfCat;document.getElementById('r-lbm').textContent=lbm.toFixed(1)+' kg';document.getElementById('r-fat-kg').textContent=fatKg.toFixed(1)+' kg ('+bf.toFixed(1)+'%)';document.getElementById('bf-viz').style.display='block';document.getElementById('bf-marker').style.left=Math.min(Math.max(bf/50*100,0),100)+'%';document.getElementById('bf-note').textContent='Body Fat estimat cu formula Deurenberg pediatric\u0103 (1991, British Journal of Nutrition). Validat 7\u201318 ani vs DEXA, precizie \u00b13\u20134%.'}
+    else{document.getElementById('r-bf').textContent='\u2014';document.getElementById('r-bf-cat').textContent='<7 ani';document.getElementById('r-lbm').textContent='\u2014';document.getElementById('r-fat-kg').textContent='\u2014';document.getElementById('bf-viz').style.display='none';document.getElementById('bf-note').textContent='Body Fat % nu se calculeaz\u0103 sub 7 ani (formula Deurenberg nu este validat\u0103). Se folosesc graficele OMS.'}
+    document.getElementById('r-diferenta').textContent=diferenta>1?'+'+diferenta.toFixed(1)+' kg peste mediana OMS':diferenta<-1?diferenta.toFixed(1)+' kg sub mediana OMS':'\u00cen intervalul optim';
+    var alertEl=document.getElementById('ponderal-alert');
+    if(imc>=ref.p95){alertEl.className='warn-box';alertEl.innerHTML='\uD83D\uDCCC <strong>Greutatea dep\u0103\u0219e\u0219te intervalul optim.</strong> Se recomand\u0103 evaluare medical\u0103, alimenta\u021bie natural\u0103, reducerea ultraprocesatelor \u0219i min 60 min activitate fizic\u0103/zi. Nu se aplic\u0103 diete restrictive la copii.';alertEl.style.display='block'}
+    else if(imc>=ref.p85){alertEl.className='info-box';alertEl.innerHTML='\uD83D\uDCCC Greutatea este u\u0219or peste median\u0103. Aten\u021bie la calitatea alimenta\u021biei, reducerea zah\u0103rului \u0219i min 60 min activitate fizic\u0103/zi.';alertEl.style.display='block'}
+    else if(imc<ref.p5){alertEl.className='warn-box';alertEl.innerHTML='\uD83D\uDCCC <strong>Greutatea este sub intervalul optim.</strong> Se recomand\u0103 evaluare pediatric\u0103 \u0219i cre\u0219terea densit\u0103\u021bii calorice a meselor.';alertEl.style.display='block'}
+    else{alertEl.style.display='none'}
+    var kcal=getKcal(grupa,sex,act),protKg=getProtKg(grupa),lipKg=getLipKg(grupa),protComplex=getProtComplex(grupa),satMax=getSatMax(grupa);
+    var protG=Math.round(protKg*g*10)/10,protKcal=Math.round(protG*4),lipG=Math.round(lipKg*g*10)/10,lipKcal=Math.round(lipG*9),glucKcal=kcal-protKcal-lipKcal,glucG=Math.round(glucKcal/4);if(glucKcal<0){glucKcal=0;glucG=0}
+    var protPct=Math.round(protKcal/kcal*100),lipPct=Math.round(lipKcal/kcal*100),glucPct=100-protPct-lipPct;
+    document.getElementById('r-kcal').textContent=kcal;document.getElementById('r-prot').textContent=protG;document.getElementById('r-prot-u').textContent=protG+'g / '+protKg+' g/kg';document.getElementById('r-lip').textContent=lipG;document.getElementById('r-lip-u').textContent=lipG+'g / '+lipKg+' g/kg';document.getElementById('r-gluc').textContent=glucG;document.getElementById('r-gluc-pct').textContent=glucPct+'%';
+    document.getElementById('bar-prot').style.width=protPct+'%';document.getElementById('bar-lip').style.width=lipPct+'%';document.getElementById('bar-gluc').style.width=glucPct+'%';
+    var actL=act==='sedentar'?'Sedentar':act==='activ'?'Activ':'Sportiv';
+    document.getElementById('grupa-tag').innerHTML='<span class="tag">'+getGL(grupa)+'</span><span class="tag">'+(sex==='m'?'B\u0103iat':'Fat\u0103')+'</span><span class="tag">'+g+' kg / '+h+' cm</span><span class="tag">'+actL+'</span>';
+    var macroObs=document.getElementById('macro-obs');if(protKcal+lipKcal>kcal){macroObs.className='warn-box';macroObs.textContent='Proteinele + lipidele dep\u0103\u0219esc necesarul caloric. Verifica\u021bi greutatea.';macroObs.style.display='block'}else{macroObs.style.display='none'}
+    var obs='',pcG=Math.round(protG*protComplex/100),smG=Math.round(lipG*satMax/100);
+    obs+='<div class="info-box">\uD83E\uDD5A <strong>Protein\u0103 complex\u0103 minim\u0103:</strong> '+pcG+' g/zi ('+protComplex+'% din '+protG+'g).</div>';
+    obs+='<div class="info-box">\uD83E\uDDC8 <strong>Gr\u0103simi saturate maxim:</strong> '+smG+' g/zi ('+satMax+'% din '+lipG+'g). Restul: ulei m\u0103sline, avocado, nuci, pe\u0219te gras.</div>';
+    if(grupa==='1-3')obs+='<div class="info-box">\uD83E\uDDD2 La 1\u20133 ani, gr\u0103simile sunt esen\u021biale pentru dezvoltarea creierului.</div>';
+    if(v<=10)obs+='<div class="info-box">\uD83D\uDC1F Omega-3 esen\u021bial pentru dezvoltarea cognitiv\u0103 sub 10 ani.</div>';
+    if(v>=11)obs+='<div class="info-box">\uD83E\uDD5B Calciu 1.300 mg/zi \u2014 v\u00e2rful de mas\u0103 osoas\u0103 se atinge \u00een adolescen\u021b\u0103.</div>';
+    obs+='<p class="note">Valorile sunt orientative. Consulta\u021bi medic pediatru sau nutri\u021bionist.</p>';
+    document.getElementById('observatii').innerHTML=obs;
+    if(act==='sportiv'){document.getElementById('sport-modul').style.display='block';document.getElementById('sp-hidro-pre').textContent=Math.round(g*6)+'\u2013'+Math.round(g*7)+' ml';document.getElementById('sp-fier').textContent=sex==='f'?'15 mg/zi (fete)':'11 mg/zi (b\u0103ie\u021bi)';var rec=tipSport==='rezistenta'?'Rezisten\u021b\u0103: carb 6\u201310 g/kg/zi (55\u201360%).':tipSport==='forta'?'For\u021b\u0103: proteine 1.5\u20132.0 g/kg/zi, carb 50\u201355%.':'Echip\u0103: carb 55\u201360% (6\u20138 g/kg/zi), proteine 1.2\u20131.8 g/kg/zi.';document.getElementById('sp-recomandare-energie').textContent=rec}else{document.getElementById('sport-modul').style.display='none'}
+    document.getElementById('rezultate').style.display='block';setTimeout(function(){document.getElementById('rezultate').scrollIntoView({behavior:'smooth'})},100);
   });
 
-  // ======= SALVARE PDF COPII =======
-  document.getElementById('btn-export-copii').addEventListener('click', function() {
-    var numeCopil = document.getElementById('nume-copil').value || 'Nespecificat';
-    var dataGen = new Date().toLocaleDateString('ro-RO', {year:'numeric',month:'long',day:'numeric'});
-    var varsta = document.getElementById('varsta').value;
-    var sex = document.getElementById('sex').value === 'm' ? 'Baiat' : 'Fata';
-    var greutate = document.getElementById('greutate').value;
-    var activitate = document.getElementById('activitate').options[document.getElementById('activitate').selectedIndex].text;
-
-    var kcal = document.getElementById('r-kcal').textContent;
-    var protG = document.getElementById('r-prot').textContent;
-    var lipG = document.getElementById('r-lip').textContent;
-    var glucG = document.getElementById('r-gluc').textContent;
-    var glucPct = document.getElementById('r-gluc-pct').textContent;
-    var grupa = document.getElementById('d-grupa').textContent;
-    var protKg = document.getElementById('d-prot-kg').textContent;
-    var lipKg = document.getElementById('d-lip-kg').textContent;
-    var protComplex = document.getElementById('d-prot-complex').textContent;
-    var satMax = document.getElementById('d-sat-max').textContent;
-
-    function row(label, value, refRange, bold) {
-      var refHtml = refRange ? '<span style="color:#888;font-size:9px;display:block;margin-top:1px">Interval referinta: '+refRange+'</span>' : '';
-      return '<tr><td style="color:#555;padding:6px 10px;border-bottom:1px solid #eee;font-size:11px;width:40%">'+label+'</td><td style="padding:6px 10px;border-bottom:1px solid #eee;font-size:11px;text-align:right;font-weight:'+(bold?'700':'500')+'">'+value+refHtml+'</td></tr>';
-    }
-    function section(title) {
-      return '<tr><td colspan="2" style="background:#e8f4ed;padding:8px 10px;font-weight:700;font-size:12px;color:#2d6a3f;letter-spacing:0.03em;border-bottom:2px solid #c8ddc3">'+title+'</td></tr>';
-    }
-
-    var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Raport Nutritional Copil - '+numeCopil+'</title>';
-    html += '<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}.page{max-width:700px;margin:0 auto;padding:20px 30px}table{width:100%;border-collapse:collapse;margin-bottom:8px}';
-    html += '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:10mm 12mm 15mm 12mm;size:A4}}</style></head><body>';
-
-    html += '<div class="page">';
-
-    // HEADER
-    html += '<div style="background:#2d6a3f;padding:16px 20px;border-radius:8px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:flex-start">';
-    html += '<div><div style="color:#fff;font-size:17px;font-weight:700">Raport Nutritional — Copii</div>';
-    html += '<div style="color:#b8d4b0;font-size:10px;margin-top:3px">Evaluare personalizata a necesarului nutritional pediatric</div></div>';
-    html += '<div style="text-align:right"><div style="color:#b8d4b0;font-size:10px">Data evaluarii: '+dataGen+'</div>';
-    html += '<div style="color:#fff;font-size:12px;font-weight:600;margin-top:2px">'+numeCopil+'</div></div></div>';
-
-    html += '<table>';
-
-    // DATE COPIL
-    html += section('DATE COPIL');
-    html += row('Nume', numeCopil, '', true);
-    html += row('Sex', sex);
-    html += row('Varsta', varsta+' ani');
-    html += row('Greutate', greutate+' kg');
-    html += row('Grupa de varsta', grupa);
-    html += row('Nivel activitate', activitate);
-
-    // NECESAR ZILNIC
-    html += section('NECESAR NUTRITIONAL ZILNIC');
-    html += row('Calorii', kcal+' kcal/zi', '', true);
-    html += row('Proteine', protG+' g/zi ('+protKg+')', '', true);
-    html += row('Lipide', lipG+' g/zi ('+lipKg+')', '', true);
-    html += row('Glucide', glucG+' g/zi ('+glucPct+' din calorii)', '', true);
-    html += row('Proteina complexa minima', protComplex);
-    html += row('Grasimi saturate maxim', satMax);
-
-    html += '</table>';
-
-    // CONCLUZIE
-    html += '<div style="margin-top:16px;padding:16px 20px;background:#e8f4ed;border-radius:8px;border-left:4px solid #2d6a3f">';
-    html += '<div style="font-size:13px;font-weight:700;color:#2d6a3f;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em">Concluzie si recomandari</div>';
-
-    var vNum = parseInt(varsta);
-    var actVal = document.getElementById('activitate').value;
-    var p1 = 'Necesarul nutritional a fost calculat conform grupei de varsta ' + grupa + ', adaptat pentru un copil de ' + greutate + ' kg.';
-    if(actVal === 'sportiv') {
-      p1 += ' Fiind sportiv de performanta, necesarul caloric a fost ajustat suplimentar pentru a sustine efortul fizic, cresterea si refacerea.';
-    }
-
-    var p2 = '';
-    if(vNum <= 3) {
-      p2 = 'In aceasta etapa, grasimile sunt esentiale pentru dezvoltarea creierului si sistemului nervos. Cel putin 75% din proteine trebuie sa provina din surse de calitate inalta (oua, carne, lactate). Se recomanda diversitate alimentara si evitarea alimentelor ultraprocesate.';
-    } else if(vNum <= 10) {
-      p2 = 'Se recomanda o alimentatie variata, bogata in legume, fructe, proteine de calitate si grasimi nesaturate (omega-3 din peste, nuci, seminte), esentiale pentru dezvoltarea cognitiva. Rutina meselor si modelul familial pozitiv sunt decisive.';
-    } else {
-      p2 = 'Adolescenta este o perioada critica pentru formarea obiceiurilor alimentare si atingerea potentialului de crestere. Se recomanda 3 mese principale + 2 gustari, mic dejun consistent, hidratare cu apa (nu sucuri/energizante), si monitorizarea statusului de fier' + (document.getElementById('sex').value === 'f' ? ' (mai ales la fete dupa menarha)' : '') + ' si vitamina D.';
-    }
-
-    var p3 = 'Monitorizarea periodica de catre medic pediatru sau nutritionist este indicata. Valorile sunt orientative si trebuie adaptate individual in functie de ritmul de crestere, starea de sanatate si nivelul de activitate.';
-
-    html += '<div style="font-size:11px;color:#333;line-height:1.7;margin-bottom:8px">'+p1+'</div>';
-    html += '<div style="font-size:11px;color:#333;line-height:1.7;margin-bottom:8px">'+p2+'</div>';
-    html += '<div style="font-size:11px;color:#333;line-height:1.7">'+p3+'</div>';
-    html += '</div>';
-
-    // FOOTER
-    html += '<div style="margin-top:20px;padding-top:12px;border-top:2px solid #d8e5d3;text-align:center">';
-    html += '<div style="font-size:11px;font-weight:600;color:#1a1a1a">Andrei Tataru — Consultant Nutritionist</div>';
-    html += '<div style="font-size:9px;color:#999;margin-top:4px">Acest raport a fost generat pe baza datelor introduse si nu constituie un diagnostic medical.</div>';
-    html += '<div style="font-size:9px;color:#999;margin-top:2px">Toate datele sunt procesate local — nicio informatie nu este transmisa sau stocata online.</div>';
-    html += '</div>';
-
-    html += '</div></body></html>';
-
-    // Deschide raportul și lansează Save as PDF
-    var printWin = window.open('', '_blank', 'width=800,height=900');
-    if(printWin) {
-      printWin.document.write(html);
-      printWin.document.close();
-      setTimeout(function(){ printWin.print(); }, 500);
-    } else {
-      alert('Permite pop-up-urile pentru acest site si incearca din nou.');
-    }
+  // SALVARE PDF
+  document.getElementById('btn-export-copii').addEventListener('click', function(){
+    var nc=document.getElementById('nume-copil').value||'Nespecificat',dg=new Date().toLocaleDateString('ro-RO',{year:'numeric',month:'long',day:'numeric'});
+    function rw(l,v,r,b){var rh=r?'<span style="color:#888;font-size:9px;display:block;margin-top:1px">Ref: '+r+'</span>':'';return '<tr><td style="color:#555;padding:6px 10px;border-bottom:1px solid #eee;font-size:11px;width:40%">'+l+'</td><td style="padding:6px 10px;border-bottom:1px solid #eee;font-size:11px;text-align:right;font-weight:'+(b?'700':'500')+'">'+v+rh+'</td></tr>'}
+    function sc(t){return '<tr><td colspan="2" style="background:#e8f4ed;padding:8px 10px;font-weight:700;font-size:12px;color:#2d6a3f;border-bottom:2px solid #c8ddc3">'+t+'</td></tr>'}
+    var htm='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Raport Copil - '+nc+'</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}.page{max-width:700px;margin:0 auto;padding:20px 30px}table{width:100%;border-collapse:collapse;margin-bottom:8px}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}@page{margin:10mm 12mm 15mm 12mm;size:A4}}</style></head><body>';
+    htm+='<div class="no-print" style="text-align:center;padding:15px;background:#e8f4ed;border-bottom:1px solid #c8ddc3"><button onclick="window.print()" style="padding:12px 24px;background:#2d6a3f;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer">Printeaza</button></div>';
+    htm+='<div class="page"><div style="background:#2d6a3f;padding:16px 20px;border-radius:8px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:flex-start"><div><div style="color:#fff;font-size:17px;font-weight:700">Raport Nutritional \u2014 Copii</div><div style="color:#b8d4b0;font-size:10px;margin-top:3px">Evaluare ponderala si necesar nutritional</div></div><div style="text-align:right"><div style="color:#b8d4b0;font-size:10px">Data: '+dg+'</div><div style="color:#fff;font-size:12px;font-weight:600;margin-top:2px">'+nc+'</div></div></div><table>';
+    htm+=sc('DATE COPIL');htm+=rw('Nume',nc,'',true);htm+=rw('Sex',document.getElementById('sex').value==='m'?'Baiat':'Fata');htm+=rw('Varsta',document.getElementById('varsta').value+' ani');htm+=rw('Greutate',document.getElementById('greutate').value+' kg');htm+=rw('Inaltime',document.getElementById('inaltime').value+' cm');
+    htm+=sc('EVALUARE PONDERALA');htm+=rw('IMC',document.getElementById('r-imc').textContent+' \u2014 '+document.getElementById('r-imc-cat').textContent,'P5\u2013P85 = normal',true);htm+=rw('Percentila OMS',document.getElementById('r-percentila').textContent+' \u2014 '+document.getElementById('r-percentila-cat').textContent,'',true);
+    var bfT=document.getElementById('r-bf').textContent;if(bfT!=='\u2014')htm+=rw('Grasime corporala',bfT+' \u2014 '+document.getElementById('r-bf-cat').textContent,'',true);
+    htm+=rw('Interval greutate optima',document.getElementById('r-gr-interval').textContent);htm+=rw('Diferenta',document.getElementById('r-diferenta').textContent);
+    htm+=sc('NECESAR NUTRITIONAL');htm+=rw('Calorii',document.getElementById('r-kcal').textContent+' kcal/zi','',true);htm+=rw('Proteine',document.getElementById('r-prot').textContent+'g','',true);htm+=rw('Lipide',document.getElementById('r-lip').textContent+'g','',true);htm+=rw('Glucide',document.getElementById('r-gluc').textContent+'g ('+document.getElementById('r-gluc-pct').textContent+')','',true);
+    htm+='</table>';
+    var vN=parseInt(document.getElementById('varsta').value),pC=document.getElementById('r-percentila-cat').textContent;
+    var c1=pC==='Nivel crescut'?'Greutatea depaseste intervalul optim. Se recomanda alimentatie naturala si min 60 min activitate fizica/zi.':pC==='Subponderal'?'Greutatea sub intervalul optim. Se recomanda evaluare pediatrica.':'Evaluarea ponderala indica un profil '+pC.toLowerCase()+' pentru varsta si inaltimea copilului.';
+    var c2=vN<=3?'Grasimile esentiale pentru dezvoltarea creierului. Min 75% proteine de calitate.':vN<=10?'Alimentatie variata, omega-3, legume, fructe. Rutina meselor e decisiva.':'Adolescenta: 3 mese + 2 gustari, mic dejun consistent, hidratare, monitorizare fier si vitamina D.';
+    htm+='<div style="margin-top:16px;padding:16px 20px;background:#e8f4ed;border-radius:8px;border-left:4px solid #2d6a3f"><div style="font-size:13px;font-weight:700;color:#2d6a3f;margin-bottom:10px;text-transform:uppercase">Concluzie</div><div style="font-size:11px;color:#333;line-height:1.7;margin-bottom:8px">'+c1+'</div><div style="font-size:11px;color:#333;line-height:1.7">'+c2+'</div></div>';
+    htm+='<div style="margin-top:20px;padding-top:12px;border-top:2px solid #d8e5d3;text-align:center"><div style="font-size:11px;font-weight:600">Andrei Tataru \u2014 Consultant Nutritionist</div><div style="font-size:9px;color:#999;margin-top:4px">Nu constituie diagnostic medical. Date procesate local.</div></div></div></body></html>';
+    var pw=window.open('','_blank');if(pw&&!pw.closed){pw.document.write(htm);pw.document.close()}else{var ov=document.createElement('div');ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:#fff;overflow-y:auto';var tb=document.createElement('div');tb.style.cssText='position:sticky;top:0;z-index:100000;background:#e8f4ed;padding:12px;text-align:center;border-bottom:1px solid #c8ddc3;display:flex;gap:8px;justify-content:center';var bp=document.createElement('button');bp.textContent='Printeaza';bp.style.cssText='padding:10px 20px;background:#2d6a3f;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer';bp.onclick=function(){window.print()};var bb=document.createElement('button');bb.textContent='Inapoi';bb.style.cssText='padding:10px 20px;background:#fff;color:#1a1a1a;border:1px solid #d8e5d3;border-radius:8px;font-size:14px;cursor:pointer';bb.onclick=function(){document.body.removeChild(ov)};tb.appendChild(bp);tb.appendChild(bb);var ct=document.createElement('div');ct.innerHTML=htm.replace(/<!DOCTYPE html>.*?<body>/s,'').replace(/<\/body>.*$/s,'').replace(/<div class="no-print".*?<\/div>/s,'');ov.appendChild(tb);ov.appendChild(ct);document.body.appendChild(ov)}
   });
 });
 </script>
-<script>
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
-</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js')}</script>
 </body>
 </html>
