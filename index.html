@@ -379,24 +379,24 @@ var imc=g/((h/100)*(h/100));var vRef=Math.max(2,Math.min(18,v));var ref=whoIMC[s
 var percentila='',percentilaCat='';
 if(imc<ref.p5){percentila='<P5';percentilaCat='Sub intervalul recomandat'}
 else if(imc<ref.p50){percentila='~P'+Math.round(5+(imc-ref.p5)/(ref.p50-ref.p5)*45);percentilaCat='\u00cen intervalul potrivit'}
-else if(imc<ref.p85){percentila='~P'+Math.round(50+(imc-ref.p50)/(ref.p85-ref.p50)*35);percentilaCat='\u00cen intervalul potrivit'}
+else if(imc<ref.p85){var pEst=Math.round(50+(imc-ref.p50)/(ref.p85-ref.p50)*35);percentila='~P'+pEst;percentilaCat=pEst>=75?'\u00cen intervalul potrivit \u2014 limita superioar\u0103':'\u00cen intervalul potrivit'}
 else if(imc<ref.p95){percentila='~P'+Math.round(85+(imc-ref.p85)/(ref.p95-ref.p85)*10);percentilaCat='U\u0219or peste interval'}
 else{percentila='>P95';percentilaCat='Peste intervalul recomandat'}
 var bf=0,bfCat='',bfValid=v>=7;
 if(bfValid){var sexD=sex==='m'?1:0;bf=1.51*imc-0.70*v-3.6*sexD+1.4;bf=Math.max(bf,3);bf=Math.min(bf,50);if(sex==='m'){bfCat=bf<10?'Slab':bf<20?'Normal':bf<25?'U\u0219or crescut':bf<30?'Crescut':'Peste optim'}else{bfCat=bf<15?'Slab':bf<25?'Normal':bf<30?'U\u0219or crescut':bf<35?'Crescut':'Peste optim'}}
 var grOpt=Math.round(ref.p50*(h/100)*(h/100)*10)/10,grLow=Math.round(ref.p5*(h/100)*(h/100)*10)/10,grHigh=Math.round(ref.p85*(h/100)*(h/100)*10)/10,diferenta=g-grOpt;
 var fatKg=bfValid?g*bf/100:0,lbm=bfValid?g-fatKg:0;
-document.getElementById('r-imc').textContent=imc.toFixed(1);document.getElementById('r-imc-cat').textContent=imc<ref.p5?'Sub interval':imc<ref.p85?'\u00cen intervalul potrivit':imc<ref.p95?'U\u0219or peste':'Peste interval';
+document.getElementById('r-imc').textContent=imc.toFixed(1);var imcPctEst=imc<ref.p5?0:imc<ref.p50?Math.round(5+(imc-ref.p5)/(ref.p50-ref.p5)*45):imc<ref.p85?Math.round(50+(imc-ref.p50)/(ref.p85-ref.p50)*35):100;document.getElementById('r-imc-cat').textContent=imc<ref.p5?'Sub interval':imc<ref.p85?(imcPctEst>=75?'\u00cen interval \u2014 limit\u0103 sup.':'\u00cen intervalul potrivit'):imc<ref.p95?'U\u0219or peste':'Peste interval';
 document.getElementById('r-percentila').textContent=percentila;document.getElementById('r-percentila-cat').textContent=percentilaCat;
 document.getElementById('r-gr-opt').textContent=grOpt.toFixed(0);document.getElementById('r-gr-interval').textContent=grLow.toFixed(0)+'\u2013'+grHigh.toFixed(0)+' kg (P5\u2013P85 OMS)';
 if(bfValid){document.getElementById('r-bf').textContent=bf.toFixed(1)+'%';document.getElementById('r-bf-cat').textContent=bfCat;document.getElementById('r-lbm').textContent=lbm.toFixed(1)+' kg';document.getElementById('r-fat-kg').textContent=fatKg.toFixed(1)+' kg ('+bf.toFixed(1)+'%)';document.getElementById('bf-viz').style.display='block';document.getElementById('bf-marker').style.left=Math.min(Math.max(bf/50*100,0),100)+'%';document.getElementById('bf-note').textContent='Body Fat estimat cu formula Deurenberg pediatric\u0103 (1991). Validat 7\u201318 ani vs DEXA, precizie \u00b13\u20134%.'}
 else{document.getElementById('r-bf').textContent='\u2014';document.getElementById('r-bf-cat').textContent='<7 ani';document.getElementById('r-lbm').textContent='\u2014';document.getElementById('r-fat-kg').textContent='\u2014';document.getElementById('bf-viz').style.display='none';document.getElementById('bf-note').textContent='Body Fat % nu se calculeaz\u0103 sub 7 ani. Se folosesc graficele OMS.'}
-document.getElementById('r-diferenta').textContent=diferenta>1?'+'+diferenta.toFixed(1)+' kg peste mediana OMS':diferenta<-1?diferenta.toFixed(1)+' kg sub mediana OMS':'\u00cen intervalul optim';
+var difP85=g-grHigh;document.getElementById('r-diferenta').textContent=diferenta>1?(difP85>=0?'+'+diferenta.toFixed(1)+' kg peste mediana OMS (la limita P85)':'+'+diferenta.toFixed(1)+' kg peste mediana OMS ('+difP85.toFixed(1)+' kg sub P85)'):diferenta<-1?diferenta.toFixed(1)+' kg sub mediana OMS':'\u00cen intervalul optim';
 var alertEl=document.getElementById('ponderal-alert');
 if(imc>=ref.p95){alertEl.className='info-box';alertEl.innerHTML='\uD83D\uDCA1 Peste intervalul recomandat \u2014 ar fi util s\u0103 lucr\u0103m \u00eempreun\u0103 la obiceiuri mai s\u0103n\u0103toase: alimenta\u021bie natural\u0103, reducerea ultraprocesatelor \u0219i min 60 min activitate fizic\u0103/zi. Nu se aplic\u0103 diete restrictive la copii.';alertEl.style.display='block'}
 else if(imc>=ref.p85){alertEl.className='info-box';alertEl.innerHTML='\uD83D\uDCA1 U\u0219or peste intervalul recomandat \u2014 putem face mici ajust\u0103ri pentru echilibru: aten\u021bie la calitatea alimenta\u021biei \u0219i min 60 min activitate fizic\u0103/zi.';alertEl.style.display='block'}
 else if(imc<ref.p5){alertEl.className='info-box';alertEl.innerHTML='\uD83D\uDCA1 Sub intervalul recomandat \u2014 putem lucra la cre\u0219terea densit\u0103\u021bii nutritive a meselor. Evaluare pediatric\u0103 recomandat\u0103.';alertEl.style.display='block'}
-else{alertEl.style.display='none'}
+else{var pEstAlert=Math.round(50+(imc-ref.p50)/(ref.p85-ref.p50)*35);if(imc>=ref.p50&&pEstAlert>=75){alertEl.className='info-box';alertEl.innerHTML='\uD83D\uDCA1 \u00cen intervalul normal, dar la limita superioar\u0103 (~P'+pEstAlert+'). Se recomand\u0103 monitorizare periodic\u0103, alimenta\u021bie echilibrat\u0103 \u0219i activitate fizic\u0103 zilnic\u0103 (min 60 min). Nu se aplic\u0103 restric\u021bii calorice.';alertEl.style.display='block'}else{alertEl.style.display='none'}}
 
 var kcal=getKcal(grupa,sex,act),protPct=getProtPct(grupa),lipPct=getLipPct(grupa),protComplex=getProtComplex(grupa),satMaxPct=getSatMax(grupa);
 if(act==='sportiv'){if(grupa==='7-10')protPct=16;if(grupa==='10-14')protPct=17;if(grupa==='14-18')protPct=18}
@@ -452,9 +452,10 @@ canvasToImg('chart-gr','Grafic Greutate pentru v\u00e2rst\u0103 \u2014 Percentil
 canvasToImg('chart-h','Grafic \u00cen\u0103l\u021bime pentru v\u00e2rst\u0103 \u2014 Percentile OMS','chart-h-msg');
 if(chartsHtm){htm+='<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e0e0e0"><div style="font-size:12px;font-weight:700;color:#2d6a3f;margin-bottom:4px;text-transform:uppercase">Grafice de cre\u0219tere OMS</div>'+chartsHtm+'</div>'}
 var vN=parseInt(document.getElementById('varsta').value),pC=document.getElementById('r-percentila-cat').textContent;
-var c1=pC==='Peste intervalul recomandat'?'Peste intervalul recomandat - ar fi util sa lucram impreuna la obiceiuri mai sanatoase: alimentatie naturala si min 60 min activitate fizica/zi.':pC==='Sub intervalul recomandat'?'Sub intervalul recomandat - putem lucra la cresterea densitatii nutritive a meselor.':pC==='U\u0219or peste interval'?'Usor peste intervalul recomandat - putem face mici ajustari pentru echilibru.':'In intervalul potrivit pentru varsta si inaltimea copilului.';
+var c1=pC==='Peste intervalul recomandat'?'Peste intervalul recomandat - ar fi util sa lucram impreuna la obiceiuri mai sanatoase: alimentatie naturala si min 60 min activitate fizica/zi.':pC==='Sub intervalul recomandat'?'Sub intervalul recomandat - putem lucra la cresterea densitatii nutritive a meselor.':pC==='U\u0219or peste interval'?'Usor peste intervalul recomandat - putem face mici ajustari pentru echilibru.':pC.indexOf('limita')!==-1?'In intervalul normal, dar la limita superioara. Se recomanda monitorizare periodica, alimentatie echilibrata si activitate fizica zilnica (min 60 min). Nu se aplica restrictii calorice.':'In intervalul potrivit pentru varsta si inaltimea copilului.';
 var c2=vN<=3?'Grasimile 35% din energie, esentiale pentru dezvoltarea creierului. Proteine 12% din energie (~3 g/kg). Min 75% proteine de calitate. Max 500ml lapte/zi.':vN<=10?'Alimentatie variata, omega-3, legume, fructe. Proteine 13-14% din energie. Rutina meselor (4-5 mese/zi) e decisiva. Hidratare 1-2L/zi.':'Adolescenta: 3 mese + 2 gustari, proteine 15-16% din energie, mic dejun consistent, hidratare 2-2.5L/zi, monitorizare fier si vitamina D. Calciu 1300mg/zi.';
-htm+='<div style="margin-top:16px;padding:16px 20px;background:#e8f4ed;border-radius:8px;border-left:4px solid #2d6a3f"><div style="font-size:13px;font-weight:700;color:#2d6a3f;margin-bottom:10px;text-transform:uppercase">Concluzie</div><div style="font-size:11px;color:#333;line-height:1.7;margin-bottom:8px">'+c1+'</div><div style="font-size:11px;color:#333;line-height:1.7">'+c2+'</div></div>';
+htm+='<style>.concluzie-edit:focus{outline:2px solid #6aaa7f;outline-offset:2px;border-radius:4px} .concluzie-edit:hover{background:#d8eddf} @media print{.concluzie-edit{outline:none!important;background:transparent!important} .edit-hint{display:none!important}}</style>';
+htm+='<div style="margin-top:16px;padding:16px 20px;background:#e8f4ed;border-radius:8px;border-left:4px solid #2d6a3f"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="font-size:13px;font-weight:700;color:#2d6a3f;text-transform:uppercase">Concluzie</div><div class="edit-hint no-print" style="font-size:9px;color:#888;font-style:italic;display:flex;align-items:center;gap:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>editabil</div></div><div contenteditable="true" class="concluzie-edit" style="font-size:11px;color:#333;line-height:1.7;margin-bottom:8px;padding:4px 6px;border-radius:4px;min-height:20px">'+c1+'</div><div contenteditable="true" class="concluzie-edit" style="font-size:11px;color:#333;line-height:1.7;padding:4px 6px;border-radius:4px;min-height:20px">'+c2+'</div></div>';
 htm+='<div style="margin-top:20px;padding-top:12px;border-top:2px solid #d8e5d3;text-align:center"><div style="font-size:11px;font-weight:600">Andrei Tataru \u2014 Consultant Nutritionist</div><div style="font-size:9px;color:#999;margin-top:4px">Ghiduri OMS, ESPGHAN, AJCN. Nu constituie diagnostic medical. Date procesate local.</div></div></div></body></html>';
 // Download function - saves HTML report directly as file
 function downloadReport(htmlContent,fileName){
@@ -469,12 +470,12 @@ var pw=window.open('','_blank');
 if(pw&&!pw.closed){
 pw.document.write(htm);pw.document.close();
 var dlBtn=pw.document.getElementById('dl-pdf-btn');
-if(dlBtn)dlBtn.onclick=function(){downloadReport.call(null,htm,dlName)};
+if(dlBtn)dlBtn.onclick=function(){var liveHtml='<!DOCTYPE html>'+pw.document.documentElement.outerHTML;downloadReport.call(null,liveHtml,dlName)};
 }else{
 var ov=document.createElement('div');ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:#fff;overflow-y:auto';
 var tb=document.createElement('div');tb.style.cssText='position:sticky;top:0;z-index:100000;background:#e8f4ed;padding:12px;text-align:center;border-bottom:1px solid #c8ddc3;display:flex;gap:8px;justify-content:center;flex-wrap:wrap';
 var bp=document.createElement('button');bp.textContent='\uD83D\uDDA8\uFE0F Printează';bp.style.cssText='padding:10px 20px;background:#2d6a3f;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer';bp.onclick=function(){window.print()};
-var bs=document.createElement('button');bs.textContent='\uD83D\uDCBE Salvează raport';bs.style.cssText='padding:10px 20px;background:#1a5c6b;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer';bs.onclick=function(){downloadReport(htm,dlName)};
+var bs=document.createElement('button');bs.textContent='\uD83D\uDCBE Salvează raport';bs.style.cssText='padding:10px 20px;background:#1a5c6b;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer';bs.onclick=function(){var liveHtml='<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>'+ct.innerHTML+'</body></html>';downloadReport(liveHtml,dlName)};
 var bb=document.createElement('button');bb.textContent='\u2190 \u00cenapoi';bb.style.cssText='padding:10px 20px;background:#fff;color:#1a1a1a;border:1px solid #d8e5d3;border-radius:8px;font-size:14px;cursor:pointer';bb.onclick=function(){document.body.removeChild(ov)};
 tb.appendChild(bp);tb.appendChild(bs);tb.appendChild(bb);
 var ct=document.createElement('div');ct.innerHTML=htm.replace(/<!DOCTYPE html>.*?<body>/s,'').replace(/<\/body>.*$/s,'').replace(/<div class="no-print".*?<\/div>/s,'');ov.appendChild(tb);ov.appendChild(ct);document.body.appendChild(ov);
@@ -497,9 +498,9 @@ f:{p5:[80.0,88.0,94.5,100.5,106.0,111.5,116.5,121.5,126.5,131.5,137.5,143.0,147.
 var chartAges=[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
 var chartInstances={imc:null,gr:null,h:null};
 
-function getPositiveMsg(val,p5,p85,p95,sex){
+function getPositiveMsg(val,p5,p50,p85,p95,sex){
 var gen=sex==='m'?'lui':'ei';
-if(val>=p5&&val<=p85) return '\u2705 \u00cen intervalul potrivit pentru v\u00e2rsta \u0219i \u00een\u0103l\u021bimea '+gen+'.';
+if(val>=p5&&val<=p85){var pEst=val<p50?Math.round(5+(val-p5)/(p50-p5)*45):Math.round(50+(val-p50)/(p85-p50)*35);if(pEst>=75) return '\uD83D\uDCA1 \u00cen intervalul normal, dar la limita superioar\u0103 (~P'+pEst+') \u2014 monitorizare periodic\u0103 recomandat\u0103.';return '\u2705 \u00cen intervalul potrivit pentru v\u00e2rsta \u0219i \u00een\u0103l\u021bimea '+gen+'.';}
 if(val>p85&&val<=p95) return '\uD83D\uDCA1 U\u0219or peste intervalul recomandat \u2013 putem face mici ajust\u0103ri pentru echilibru.';
 if(val>p95) return '\uD83D\uDCA1 Peste intervalul recomandat \u2013 ar fi util s\u0103 lucr\u0103m \u00eempreun\u0103 la obiceiuri mai s\u0103n\u0103toase.';
 return '\uD83D\uDCA1 Sub intervalul recomandat \u2013 putem lucra la cre\u0219terea densit\u0103\u021bii nutritive a meselor.';
@@ -571,8 +572,8 @@ if(chartInstances.imc){chartInstances.imc.destroy();chartInstances.imc=null}
 makeChart('chart-imc',imcData,sex,age,Math.round(imc*10)/10,'IMC (kg/m\u00b2)',12,28,2);
 var aidx=chartAges.indexOf(age);
 if(aidx>=0){
-document.getElementById('chart-imc-msg').innerHTML=getPositiveMsg(imc,imcP5[aidx],imcP85[aidx],imcP95[aidx],sex);
-document.getElementById('chart-gr-msg').innerHTML=getPositiveMsg(weight,whoWeight[sex].p5[aidx],whoWeight[sex].p85[aidx],whoWeight[sex].p95[aidx],sex);
+document.getElementById('chart-imc-msg').innerHTML=getPositiveMsg(imc,imcP5[aidx],imcP50[aidx],imcP85[aidx],imcP95[aidx],sex);
+document.getElementById('chart-gr-msg').innerHTML=getPositiveMsg(weight,whoWeight[sex].p5[aidx],whoWeight[sex].p50[aidx],whoWeight[sex].p85[aidx],whoWeight[sex].p95[aidx],sex);
 document.getElementById('chart-h-msg').innerHTML=getHeightMsg(height,whoHeight[sex].p5[aidx],whoHeight[sex].p85[aidx],whoHeight[sex].p95[aidx]);
 }
 // Weight chart
